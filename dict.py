@@ -8,7 +8,7 @@ ALPHABET = list(string.ascii_uppercase)
 DIGITS = list(string.digits)
 
 def create_all_cars_with_all_licence_plates() -> list:
-    l = []
+    d = {}
     for first_pos in ALPHABET:
         for second_pos in ALPHABET:
             for third_pos in ALPHABET:
@@ -16,8 +16,11 @@ def create_all_cars_with_all_licence_plates() -> list:
                     for j in DIGITS:
                         for k in DIGITS:
                             regnr = first_pos + second_pos + third_pos + i + j +k
-                            l.append(Car(regnr, '', ''))
-    return l
+                            d[ regnr] = Car(regnr, '', '')
+    return d
+
+
+
 
 def get_car_by_regno(regnr:str, list_of_cars:list[Car]):
     for car in list_of_cars:
@@ -40,13 +43,15 @@ def main():
         regnr = input ("Ange Regnr: ")
 
 
-        if regnr == "q": break
+        if regnr == "q":
+            break
+
+        t_start = default_timer()
+        t_end = default_timer()
+        print(f"Sökningen tog {t_end - t_start} sekunder")
 
         car = get_car_by_regno(regnr, cars)
         if car :
-            t_start = default_timer()
-            t_end = default_timer()
-            print(f"Sökningen tog {t_end - t_start} sekunder")
             print("Hitta bil!")
         else:
             print("Bil finns inte")
