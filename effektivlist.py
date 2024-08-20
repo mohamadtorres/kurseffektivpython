@@ -17,7 +17,7 @@ def create_all_cars_with_all_licence_plates() -> list:
                         for k in DIGITS:
                             regnr = first_pos + second_pos + third_pos + i + j +k
                             l.append(regnr)
-    return d
+    return l
 
 
 def get_car_by_regno(regnr:str, list_of_cars:list[Car]):
