@@ -8,7 +8,7 @@ ALPHABET = list(string.ascii_uppercase)
 DIGITS = list(string.digits)
 
 def create_all_cars_with_all_licence_plates() -> list:
-    d = {}
+    l = []
     for first_pos in ALPHABET:
         for second_pos in ALPHABET:
             for third_pos in ALPHABET:
@@ -16,7 +16,7 @@ def create_all_cars_with_all_licence_plates() -> list:
                     for j in DIGITS:
                         for k in DIGITS:
                             regnr = first_pos + second_pos + third_pos + i + j +k
-                            d[ regnr] = Car(regnr, '', '')
+                            l.append(regnr)
     return d
 
 
@@ -32,7 +32,7 @@ def main():
     t_start = default_timer()
     cars = create_all_cars_with_all_licence_plates()
     t_end = default_timer()
-    random.shuffle(cars)
+
 
     print(f"Det tog {t_end - t_start} sekunder att spara alla bilar")
     
