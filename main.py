@@ -4,6 +4,7 @@ import string
 import random
 
 ALPHABET = list(string.ascii_uppercase)
+#string.ascii_uppercase genererar en lista av alla engelska bokstäver
 #stora bokstäver === ändra inte sen låt det vara för fan
 DIGITS = list(string.digits)
 
