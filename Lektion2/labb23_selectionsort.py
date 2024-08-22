@@ -15,3 +15,4 @@ def insertion_sort(lista):
 insertion_sort_sorted = insertion_sort(spelare)
 print(insertion_sort_sorted)
 
+#Fati
