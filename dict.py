@@ -9,7 +9,7 @@ ALPHABET = list(string.ascii_uppercase)
 #stora bokstäver === ändra inte sen låt det vara för fan
 DIGITS = list(string.digits)
 
-def create_all_cars_with_all_licence_plates() -> list:
+def create_all_cars_with_all_licence_plates() -> dict:
     d = {}
     for first_pos in ALPHABET:
         for second_pos in ALPHABET:
@@ -24,10 +24,9 @@ def create_all_cars_with_all_licence_plates() -> list:
 
 
 
-def get_car_by_regno(regnr:str, list_of_cars:list[Car]):
-    for car in list_of_cars:
-        if car.regnr == regnr:
-            return car
+def get_car_by_regno(regnr:str, dict_of_cars:dict[str:Car]):
+    if regnr in dict_of_cars:
+        return dict_of_cars[regnr]
         
     return None
 
@@ -50,7 +49,7 @@ def main():
 
         t_start = default_timer()
         t_end = default_timer()
-        print(f"Sökningen tog {t_end - t_start} sekunder")
+        print(f"Sökningen tog {t_end - t_start:.2f} sekunder")
 
         car = get_car_by_regno(regnr, cars_dict)
         if car :
