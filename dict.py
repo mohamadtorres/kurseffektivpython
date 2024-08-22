@@ -2,6 +2,8 @@ from car import Car
 from timeit import default_timer
 import string 
 import random
+import os
+import sys
 
 ALPHABET = list(string.ascii_uppercase)
 #stora bokstäver === ändra inte sen låt det vara för fan
@@ -16,7 +18,7 @@ def create_all_cars_with_all_licence_plates() -> list:
                     for j in DIGITS:
                         for k in DIGITS:
                             regnr = first_pos + second_pos + third_pos + i + j +k
-                            d[ regnr] = Car(regnr, '', '')
+                            d[regnr] = Car(regnr, '', '')
     return d
 
 
@@ -29,14 +31,14 @@ def get_car_by_regno(regnr:str, list_of_cars:list[Car]):
         
     return None
 
-
+ 
 def main():
     t_start = default_timer()
-    cars = create_all_cars_with_all_licence_plates()
+    cars_dict = create_all_cars_with_all_licence_plates()
     t_end = default_timer()
-    random.shuffle(cars)
+    # random.shuffle(cars_list)
 
-    print(f"Det tog {t_end - t_start} sekunder att spara alla bilar")
+    print(f"Det tog {t_end - t_start:.2f} sekunder att spara alla bilar och tar upp {sys.getsizeof(cars_dict)//10**6:.2f} Mb")
     
 
     while True:
@@ -50,7 +52,7 @@ def main():
         t_end = default_timer()
         print(f"Sökningen tog {t_end - t_start} sekunder")
 
-        car = get_car_by_regno(regnr, cars)
+        car = get_car_by_regno(regnr, cars_dict)
         if car :
             print("Hitta bil!")
         else:

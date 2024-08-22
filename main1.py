@@ -1,6 +1,6 @@
 from car import Car
 import string
-
+from timeit import default_timer
 
 ALPHABET = list(string.ascii_uppercase)
 #kommer ge dig ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
@@ -20,3 +20,14 @@ def create_all_cars_with_all_licence_plates() -> list:
                             regnr = first_pos + second_pos + third_pos + i + j +k
                             l.append(Car(regnr, '', ''))
     return l
+
+
+def main():
+    t_start = default_timer()
+    cars = create_all_cars_with_all_licence_plates()
+    t_end = default_timer()
+    print(f"Det tog {t_end - t_start:.2f} sekunder att skapa listan")
+
+if __name__ == '__main__':
+    main()
+

@@ -2,6 +2,7 @@ from car import Car
 from timeit import default_timer
 import string 
 import random
+import os
 
 ALPHABET = list(string.ascii_uppercase)
 #string.ascii_uppercase genererar en lista av alla engelska bokstäver
@@ -32,9 +33,9 @@ def main():
     t_start = default_timer()
     cars = create_all_cars_with_all_licence_plates()
     t_end = default_timer()
-    random.shuffle(cars)
+    
 
-    print(f"Det tog {t_end - t_start} sekunder att spara alla bilar")
+    print(f"Det tog {t_end - t_start:.2f} sekunder att spara alla bilar")
     
 
     while True:
@@ -47,7 +48,7 @@ def main():
         if car :
             t_start = default_timer()
             t_end = default_timer()
-            print(f"Sökningen tog {t_end - t_start} sekunder")
+            print(f"Sökningen tog {t_end - t_start:.2f} sekunder")
             print("Hitta bil!")
         else:
             print("Bil finns inte")
