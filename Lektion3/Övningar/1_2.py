@@ -3,14 +3,15 @@
 # skickas in till funktionen.
 
 def dekorator(func):
-    def wrapper():
+    def wrapper(*args, **kwargs):
         
         print(f"Functionen heter {func.__name__}")
-        func()
+        print(f"functionen tar {args} and {kwargs}")
+        return func(*args, **kwargs)
     return wrapper
 
 @dekorator
-def say_hello():
-    print("Hello motherfucker!")
+def add(a,b):
+    return a + b
 
-say_hello()
+print(add(6,9))
