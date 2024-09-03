@@ -19,4 +19,11 @@ print(nydict)
 # N-gram frekvens: Givet en textstr¨ang, skapa en dictionary d¨ar nyck-
 # larna ¨ar alla m¨ojliga par av bokst¨aver (bi-gram) och v¨ardena ¨ar antalet
 # g˚anger varje par f¨orekommer i str¨angen.
-
+sträng = "Mohammad Khavari dele mano bordi"
+# Ta bort mellanrum
+ren_sträng = sträng.replace(" ", "")
+nydict1 = {ren_sträng[i:i+2]:ren_sträng.count(ren_sträng[i:i+2]) for i in range(len(ren_sträng))}
+# par = list(itertools.combinations(sträng.replace(" ",""), 2))
+# for p in par:
+#     print(p)
+print(nydict1)
