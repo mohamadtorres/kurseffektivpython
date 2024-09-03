@@ -86,6 +86,7 @@ def jämnatal(lista):
         if x % 2 == 0:
             yield x
 
+#bedune inke dobare nums = squarednumbers(10) biaram nemishod chon ye bar uno tu kode balayi yield karde bud och brukad shode bood
 nums = squarenumbers(10)
 #Förklaring:
 
@@ -96,3 +97,5 @@ nums = squarenumbers(10)
 jämnhast = jämnatal(nums)
 for num in jämnhast:
     print(num)
+
+
