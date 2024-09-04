@@ -1,0 +1,9 @@
+Du har rätt, och jag ser nu vad som orsakar problemet.
+Problemet ligger i hur generatorerna konsumeras när de används tillsammans. När du itererar över en generator, konsumeras den, och dess tillstånd ändras,
+vilket leder till att den inte kan itereras igen utan att startas om. Detta är anledningen till att du ser varannan tuple i din output.
+Förklaring av problemet:
+När du först använder tal_list för att skapa kvadrat_lista med kvadrat_generator, konsumeras tal_list delvis. 
+När du sedan använder den igen i tupple_generator, fortsätter den från där den slutade, vilket resulterar i varannan tuple i output.
+Lösning:
+För att lösa detta problem måste du se till att båda generatorerna itererar synkront utan att förbruka varandra på olika sätt. 
+Det enklaste sättet att göra detta är att inte använda samma generator två gånger, utan istället skapa två parallella generatorer eller använda listor om du behöver iterera flera gånger.
